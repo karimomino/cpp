@@ -27,7 +27,8 @@ std::string Contact::_getInput(std::string str) const {
 }
 
 void	Contact::init(void) {
-	std::cin.ignore();
+	// std::cin.ignore();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 	this->_firstName = this->_getInput("Please enter you first name: ");
 	this->_lastName = this->_getInput("Please enter your last name: ");
 	this->_nickname = this->_getInput("Please enter your nickname: ");

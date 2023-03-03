@@ -44,6 +44,7 @@ void	PhoneBook::printContacts(void) const {
 int	 PhoneBook::_readInput() const {
 	int	 input = -1;
 	bool	valid = false;
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 	do
 	{
 		std::cout << "Please enter the contact index: " << std::flush;
