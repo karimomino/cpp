@@ -1,6 +1,6 @@
 #include "Contact.hpp"
 
-
+#include <limits>
 Contact::Contact()
 {
 }
