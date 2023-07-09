@@ -6,22 +6,27 @@
 /*   By: kamin <kamin@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:11:11 by kamin             #+#    #+#             */
-/*   Updated: 2023/07/07 11:11:12 by kamin            ###   ########.fr       */
+/*   Updated: 2023/07/09 08:32:26 by kamin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef HUMANB_HPP
 
-class HumanB
-{
-private:
-	std::string	_name;
-	Weapon*		_weapon;
+	#define HUMANB_HPP
+	#include "Weapon.hpp"
 
-public:
-	HumanB( std::string name );
-	~HumanB();
+	class HumanB
+	{
+	private:
+		std::string	_name;
+		Weapon*		_weapon;
 
-	void	attack( void ) const;
-	void	setWeapon( Weapon& weapon );
-};
+	public:
+		HumanB( std::string name );
+		~HumanB();
+
+		void	attack( void ) const;
+		void	setWeapon( Weapon& weapon );
+	};
+
+#endif

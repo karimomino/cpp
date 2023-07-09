@@ -6,21 +6,26 @@
 /*   By: kamin <kamin@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:11:07 by kamin             #+#    #+#             */
-/*   Updated: 2023/07/07 11:11:08 by kamin            ###   ########.fr       */
+/*   Updated: 2023/07/09 08:31:55 by kamin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef HUMANA_HPP
 
-class HumanA
-{
-private:
-	std::string _name;
-	Weapon&	 _weapon;
+	#define HUMANA_HPP
+	#include "Weapon.hpp"
 
-public:
-	HumanA( std::string name, Weapon& weapon );
-	~HumanA();
+	class HumanA
+	{
+	private:
+		std::string _name;
+		Weapon&	 _weapon;
 
-	void	attack( void ) const;
-};
+	public:
+		HumanA( std::string name, Weapon& weapon );
+		~HumanA();
+
+		void	attack( void ) const;
+	};
+	
+#endif

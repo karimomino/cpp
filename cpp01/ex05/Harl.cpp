@@ -6,7 +6,7 @@
 /*   By: kamin <kamin@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 12:26:22 by kamin             #+#    #+#             */
-/*   Updated: 2023/07/07 12:26:33 by kamin            ###   ########.fr       */
+/*   Updated: 2023/07/09 08:30:52 by kamin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	Harl::error( void ) {
 
 void	Harl::complain( std:: string level ) {
 	
-	fun_ptr  funcs[] = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
+	Harl::fun_ptr  funcs[] = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
 	std::string levels[] = { "DEBUG", "INFO", "WARNING", "ERROR"};
 	int i = 0;
 	
