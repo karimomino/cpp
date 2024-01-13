@@ -6,7 +6,7 @@ int main( void )
 
     try {
         Bureaucrat bureaucrat("Some Politician",11);
-        Form form("Food Boxes Form", 0);
+        Form form("Refund Form 1", 0);
 
         bureaucrat.signForm(form);
 
@@ -17,7 +17,7 @@ int main( void )
 
     try {
         Bureaucrat bureaucrat("Some Politician",11);
-        Form form("Food Boxes Form", 10);
+        Form form("Refund Form", 10);
 
         bureaucrat.signForm(form);
 
@@ -28,7 +28,7 @@ int main( void )
 
     try {
         Bureaucrat bureaucrat("Some Politician",11);
-        Form form("Food Boxes Form", 12);
+        Form form("Refund Form", 12);
 
         bureaucrat.signForm(form);
 
