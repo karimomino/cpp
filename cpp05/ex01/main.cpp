@@ -5,6 +5,39 @@ int main( void )
 {
 
     try {
+        Bureaucrat bureaucrat("some politician", 33);
+
+        std::cout << bureaucrat << std::endl;
+
+        bureaucrat.incrementGrade();
+        bureaucrat.decrementGrade();
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    } 
+
+    try {
+        Bureaucrat bureaucrat("some politician", 151);
+
+        std::cout << bureaucrat << std::endl;
+
+        bureaucrat.incrementGrade();
+        bureaucrat.decrementGrade();
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
+
+    try {
+        Bureaucrat bureaucrat("some politician", 0);
+
+        std::cout << bureaucrat << std::endl;
+
+        bureaucrat.incrementGrade();
+        bureaucrat.decrementGrade();
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
+
+    try {
         Bureaucrat bureaucrat("Some Politician",11);
         Form form("Refund Form 1", 0);
 
@@ -17,7 +50,7 @@ int main( void )
 
     try {
         Bureaucrat bureaucrat("Some Politician",11);
-        Form form("Refund Form", 10);
+        Form form("Refund Form 2", 10);
 
         bureaucrat.signForm(form);
 
@@ -28,7 +61,7 @@ int main( void )
 
     try {
         Bureaucrat bureaucrat("Some Politician",11);
-        Form form("Refund Form", 12);
+        Form form("Refund Form 3", 12);
 
         bureaucrat.signForm(form);
 
