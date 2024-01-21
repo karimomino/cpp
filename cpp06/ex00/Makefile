@@ -28,7 +28,6 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	printf "$(YELLOW)    - Executable removed.$(RESET)\n"
 
 re: fclean all
 

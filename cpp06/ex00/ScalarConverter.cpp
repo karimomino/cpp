@@ -48,7 +48,7 @@ static void    printInt( const std::string & _str , const short type) {
     else
         num = std::strtol(_str.c_str() , NULL , 10 );
     std::cout << "Int: ";
-    if ( type == LITERAL || num > std::numeric_limits<int>::max() ) {
+    if ( type == LITERAL || num > std::numeric_limits<int>::max() || num < std::numeric_limits<int>::min() ) {
         std::cout << "Impossible";
     } else {
         std::cout << static_cast<int>(num);
@@ -111,53 +111,53 @@ static bool    isFloat ( const std::string & _str ) {
 
 static void    printDouble( const std::string & _str , const short type) {
     double num;
+    errno = 0;
     if (type == CHAR)
         num = _str[0];
     else
         num = std::strtod(_str.c_str() , NULL);
-    std::cout << "Double: " << std::fixed;
+    std::cout << "Double: ";
     if ( _str.compare( "nan" ) == 0 || _str.compare( "nanf" ) == 0 ) {
         std::cout << "nan";
     } else if ( _str.compare( "+inff" ) == 0 || _str.compare( "+inf" ) == 0 ) {
         std::cout << "+inf";
     } else if ( _str.compare( "-inff" ) == 0 || _str.compare( "-inf" ) == 0 ) {
         std::cout << "-inf";
-    } else if ( _str.compare("0") && num == 0 ) {
+    } else if ( (_str.compare("0") && num == 0) || errno) {
         std::cout << "Impossible";
     } else {
-        if ( num - static_cast< int > ( num ) == 0 ) {
-            std::cout << std::setprecision(1);
-        }
         std::cout << static_cast<double>(num);
+        if ( num - static_cast< int > ( num ) == 0 ) {
+            std::cout << ".0";
+        }
     }
     std::cout << std::endl;
-    std::cout << std::setprecision(6);
 }
 
 
 static void    printFloat( const std::string & _str , const short type ) {
-    float num;
+    double num;
     if (type == CHAR)
         num = _str[0];
     else
         num = std::strtod(_str.c_str() , NULL);
-    std::cout << "Float: " << std::fixed;
+    std::cout << "Float: ";
     if ( _str.compare( "nan" ) == 0 || _str.compare( "nanf" ) == 0 ) {
         std::cout << "nan";
     } else if ( _str.compare( "+inff" ) == 0 || _str.compare( "+inf" ) == 0 ) {
         std::cout << "+inff";
     } else if ( _str.compare( "-inff" ) == 0 || _str.compare( "-inf" ) == 0 ) {
         std::cout << "-inff";
-    } else if ( (_str.compare("0") && num == 0) || num > std::numeric_limits<float>::max() ) {
+    } else if ( (_str.compare("0") && num == 0) || num > std::numeric_limits<float>::max() || errno ) {
         std::cout << "Impossible";
     } else {
+        std::cout << static_cast<float>(num);
         if ( num - static_cast< int > ( num ) == 0 ) {
-            std::cout << std::setprecision(1);
+            std::cout << ".0";
         }
-        std::cout << static_cast<float>(num) << "f";
+        std::cout << "f\n";
     }
     std::cout << std::endl;
-    std::cout << std::setprecision(6);
 }
 
 static short getType( const std::string & _str ) {

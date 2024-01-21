@@ -5,7 +5,7 @@ class A : public Base {};
 class B : public Base {};
 class C : public Base {};
 
-Base*   generate( void ) {
+static Base*   generate( void ) {
     if ( std::rand() % 3 == 0 )
         return ( new A );
     else if ( std::rand() % 3 == 1 )
@@ -14,7 +14,7 @@ Base*   generate( void ) {
         return ( new C );
 }
 
-void    identify( Base* p ) {
+static void    identify( Base* p ) {
     if ( dynamic_cast< A* >( p ) )
         std::cout << "A" << std::endl;
     else if ( dynamic_cast< B* >( p ) )
@@ -25,7 +25,7 @@ void    identify( Base* p ) {
         std::cout << "unknown" << std::endl;
 }
 
-void    identify( Base& p ) {
+static void    identify( Base& p ) {
     try {
         A& a = dynamic_cast< A& >( p );
         std::cout << "A" << std::endl;
@@ -52,9 +52,6 @@ int     main( void )
     Base*   a = generate();
     Base*   b = generate();
     Base*   c = generate();
-    Base*   d = generate();
-
-    std::cout << "/* **************************************** */" << std::endl;
 
     std::cout << "og* = "; identify( og );
     std::cout << "og& = "; identify( *og ); std::cout << std::endl;
@@ -68,16 +65,9 @@ int     main( void )
     std::cout << "c* = "; identify( c );
     std::cout << "c& = "; identify( *c ); std::cout << std::endl;
 
-    std::cout << "d* = "; identify( d );
-    std::cout << "d& = "; identify( *d ); std::cout << std::endl;
-
-    std::cout << "/* ***************************************** */" << std::endl;
-
-
     delete a;
     delete b;
     delete c;
-    delete d;
 
     return (0);
 }
