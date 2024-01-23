@@ -16,7 +16,7 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "Elements in MutantStack using const iterators: ";
-    for (MutantStack<int>::const_iterator it = mutantStack.cbegin(); it != mutantStack.cend(); ++it) {
+    for (MutantStack<int>::const_iterator it = mutantStack.begin(); it != mutantStack.end(); ++it) {
         std::cout << *it << " ";
     }
     std::cout << std::endl;
