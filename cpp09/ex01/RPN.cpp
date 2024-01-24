@@ -1,6 +1,6 @@
 #include "RPN.hpp"
 
-std::stack<int> RPN::_stack;
+std::stack<int , std::list<int> > RPN::_stack;
 std::pair<unsigned char , op_fn> RPN::_operations[] = {
     std::make_pair('+', &RPN::sum),
     std::make_pair('-', &RPN::subtract),

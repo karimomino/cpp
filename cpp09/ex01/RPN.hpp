@@ -3,6 +3,7 @@
 
 #include <string>
 #include <stack>
+#include <list>
 #include <iostream>
 
 
@@ -18,7 +19,7 @@ private:
 	RPN(const RPN &rhs);
 	RPN& operator=(const RPN &rhs);
 	static std::pair<unsigned char , op_fn> _operations[4];
-	static std::stack<int> _stack;
+	static std::stack<int, std::list<int> > _stack;
 	static void do_op(unsigned char symbol);
 
 	static int sum(const int &lhs, const int &rhs);
