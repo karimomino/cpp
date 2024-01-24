@@ -1,5 +1,5 @@
-#ifndef EX02_PMERGEME_HPP_
-#define EX02_PMERGEME_HPP_
+#ifndef PMERGEME_HPP
+#define PMERGEME_HPP
 
 #include <vector>
 #include <deque>

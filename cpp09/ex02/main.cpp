@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 		std::stringstream ss(argv[i]);
 		int num;
 		if (!(ss >> num) || !ss.eof()) {
-			std::cout << "Error: Invalid input.\n";
+			std::cout << "Error: Invalid sequence.\n";
 			return 1;
 		}
 		if (num < 0) {
@@ -30,7 +30,6 @@ int main(int argc, char *argv[])
 		deq.push_back(num);
 	}
 
-	// print_container("Before: ", v);
 	std::cout << "Original vector: ";
     for (size_t i = 0; i < vec.size(); ++i)
     {
@@ -71,8 +70,5 @@ int main(int argc, char *argv[])
 
 	std::cout << "Sorted vector[" << vec.size() << "] in: " << time_vector << " us" << std::endl;
 	std::cout << "Sorted deque[" << deq.size() << "] in: " << time_deque << " us" << std::endl;
-
-	std::cout << "isSorted vector: " << std::is_sorted(vec.begin() , vec.end()) << std::endl;
-	std::cout << "isSorted deque: " << std::is_sorted(deq.begin() , deq.end()) << std::endl;
 	return 0;
 }
